@@ -1,0 +1,241 @@
+/* Explore page styles - inherits homepage dark theme */
+
+/* Explore topbar */
+.explore-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.explore-topbar .history-nav {
+  display: flex;
+  gap: 24px;
+  color: var(--muted-foreground);
+}
+
+.explore-topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.explore-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--secondary);
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 999px;
+  width: 280px;
+  cursor: text;
+  color: var(--muted-foreground);
+}
+
+.explore-search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--foreground);
+  font-size: 14px;
+  width: 100%;
+  font-family: var(--font-family-body);
+}
+
+.explore-search-box input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-subscribe,
+a.btn-subscribe,
+a.btn-subscribe:visited,
+a.btn-subscribe:hover,
+a.btn-subscribe:active {
+  background: var(--foreground);
+  color: #000000 !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 24px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-family-body);
+}
+
+/* Explore content */
+.explore-content {
+  padding: 24px 32px 64px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.explore-page-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Top Albums Grid */
+.top-albums-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+
+.top-album-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-album-card:hover .top-album-img-wrapper img {
+  transform: scale(1.03);
+}
+
+.top-album-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--secondary);
+}
+
+.top-album-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.top-album-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.top-album-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--foreground);
+}
+
+.top-album-artist {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-album-year {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin: 0;
+  opacity: 0.7;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.category-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.see-all {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.see-all:hover {
+  color: var(--foreground);
+}
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill {
+  background: var(--secondary);
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.pill:hover {
+  background: var(--muted);
+}
+
+.bottom-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 24px;
+  column-gap: 32px;
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+.link-item {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.link-item:hover {
+  opacity: 0.8;
+}

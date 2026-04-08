@@ -1,0 +1,1130 @@
+/* ==========================================================================
+   Account Page - TIDAL-inspired light theme
+   Standalone page (layout: false), no app sidebar
+   ========================================================================== */
+
+/* --- Page Root --- */
+.account-page {
+  min-height: 100vh;
+  height: 100vh;
+  background: #fff;
+  color: #191919;
+  font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   Top Navigation Bar
+   ========================================================================== */
+
+.account-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #000;
+}
+
+.account-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.account-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.account-nav-logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.account-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.account-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.account-nav-link:hover {
+  color: #fff;
+}
+
+.account-nav-link--active,
+.account-nav-link--active:hover {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Hero Banner
+   ========================================================================== */
+
+.account-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #141418 40%, #1a1a22 70%, #0d0d12 100%);
+  overflow: hidden;
+}
+
+.account-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 56px 40px;
+  position: relative;
+  min-height: 200px;
+}
+
+.account-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 2;
+}
+
+.account-hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.account-hero-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.account-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: #33ffee;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.15s ease, transform 0.1s ease;
+  font-family: inherit;
+}
+
+.account-hero-cta:hover {
+  background: #5cffef;
+  transform: translateY(-1px);
+}
+
+.account-hero-cta:active {
+  transform: translateY(0);
+}
+
+/* Collage placeholder on the right */
+.account-hero-visual {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.account-hero-collage {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 80px 80px;
+  gap: 8px;
+}
+
+.account-hero-collage-item {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.account-hero-collage-item--1 { grid-row: 1 / 3; background: rgba(51, 255, 238, 0.15); }
+.account-hero-collage-item--2 { background: rgba(255, 255, 255, 0.08); }
+.account-hero-collage-item--3 { background: rgba(255, 255, 255, 0.1); }
+.account-hero-collage-item--4 { display: none; }
+
+.account-hero-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.account-hero-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Profile Card
+   ========================================================================== */
+
+.account-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.account-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0;
+  border-bottom: 1px solid #e8e8ed;
+}
+
+.account-profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f0f0f5;
+  color: #71717f;
+  flex-shrink: 0;
+}
+
+.account-profile-email {
+  font-size: 15px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0;
+}
+
+.account-profile-status {
+  font-size: 13px;
+  color: #71717f;
+  margin: 0;
+  margin-left: auto;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Body Layout: Sidebar + Main
+   ========================================================================== */
+
+.account-body {
+  display: flex;
+  gap: 56px;
+  padding: 40px 0 80px;
+}
+
+/* --- Sidebar --- */
+
+.account-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.account-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: sticky;
+  top: 96px;
+}
+
+.account-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a5a66;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+
+.account-sidebar-item:hover {
+  background: #f5f5f8;
+  color: #191919;
+}
+
+.account-sidebar-item--active {
+  background: #f0f0f5;
+  color: #191919;
+  font-weight: 600;
+}
+
+.account-sidebar-item--active:hover {
+  background: #eaeaef;
+}
+
+.account-sidebar-item--danger {
+  color: #dc2626;
+}
+
+.account-sidebar-item--danger:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+
+.account-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* --- Sections --- */
+
+.account-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.account-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #191919;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+
+.account-section-divider {
+  height: 1px;
+  background: #e8e8ed;
+  margin-bottom: 24px;
+}
+
+/* --- Field Groups --- */
+
+.account-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.account-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.account-field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #71717f;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.account-field-info-icon {
+  color: #a0a0ad;
+  cursor: help;
+}
+
+.account-field-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: #191919;
+  padding: 10px 0;
+}
+
+.account-field-value--password {
+  letter-spacing: 2px;
+  color: #71717f;
+}
+
+.account-field-hint {
+  font-size: 13px;
+  color: #9090a0;
+  margin: 2px 0 0;
+  line-height: 1.5;
+}
+
+/* --- Inputs --- */
+
+.account-input {
+  background: #f5f5f8;
+  border: 1px solid #e0e0e6;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #191919;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  max-width: 420px;
+  width: 100%;
+}
+
+.account-input::placeholder {
+  color: #b0b0bc;
+}
+
+.account-input:focus {
+  border-color: #191919;
+  box-shadow: 0 0 0 3px rgba(25, 25, 25, 0.06);
+}
+
+.account-input:read-only {
+  color: #71717f;
+  cursor: default;
+}
+
+.account-input[type="date"] {
+  max-width: 220px;
+}
+
+/* --- Field Rows --- */
+
+.account-field-row {
+  display: flex;
+  gap: 16px;
+}
+
+.account-field-row .account-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-field-row .account-input {
+  max-width: none;
+}
+
+/* --- Actions --- */
+
+.account-field-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.account-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.account-btn:active {
+  transform: scale(0.98);
+}
+
+.account-btn--dark {
+  background: #242429;
+  color: #fff;
+}
+
+.account-btn--dark:hover {
+  background: #3a3a42;
+}
+
+.account-btn--outline {
+  background: transparent;
+  color: #191919;
+  border: 1.5px solid #d0d0d8;
+}
+
+.account-btn--outline:hover {
+  border-color: #191919;
+}
+
+.account-btn--danger-text {
+  background: none;
+  color: #dc2626;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+.account-btn--danger-text:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Subscription Card
+   ========================================================================== */
+
+.account-subscription {
+  background: #fafafa;
+  border: 1px solid #e8e8ed;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.account-subscription-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+}
+
+.account-subscription-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #71717f;
+}
+
+.account-subscription-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #191919;
+}
+
+.account-subscription-divider {
+  height: 1px;
+  background: #e8e8ed;
+  margin: 0 20px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.account-footer {
+  margin-top: auto;
+  border-top: 1px solid #e8e8ed;
+  background: #fff;
+}
+
+.account-footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 40px;
+}
+
+.account-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.account-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #9090a0;
+  font-weight: 500;
+}
+
+.account-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.account-footer-links a {
+  font-size: 12px;
+  font-weight: 500;
+  color: #71717f;
+  text-decoration: none;
+  transition: color 0.12s ease;
+}
+
+.account-footer-links a:hover {
+  color: #191919;
+}
+
+.account-footer-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.account-footer-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #71717f;
+  background: none;
+  border: 1px solid #e0e0e6;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+
+.account-footer-lang:hover {
+  border-color: #191919;
+  color: #191919;
+}
+
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
+
+.account-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: #b0b0bc;
+}
+
+.account-empty-state-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #71717f;
+  margin: 16px 0 4px;
+}
+
+.account-empty-state-hint {
+  font-size: 13px;
+  color: #9090a0;
+  margin: 0;
+  max-width: 380px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Toggle Switch
+   ========================================================================== */
+
+.account-toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.account-toggle-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.account-toggle-item:last-child {
+  border-bottom: none;
+}
+
+.account-toggle-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-toggle-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 4px;
+}
+
+.account-toggle-desc {
+  font-size: 13px;
+  color: #9090a0;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.account-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  border: none;
+  background: #d0d0d8;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+  padding: 0;
+}
+
+.account-toggle--active {
+  background: #33ffee;
+}
+
+.account-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.account-toggle--active .account-toggle-knob {
+  transform: translateX(20px);
+}
+
+/* ==========================================================================
+   Info Banner
+   ========================================================================== */
+
+.account-info-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #f5f5f8;
+  border: 1px solid #e8e8ed;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  color: #71717f;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account-info-banner strong {
+  color: #191919;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Devices
+   ========================================================================== */
+
+.account-devices-header {
+  margin-bottom: 16px;
+}
+
+.account-devices-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: #71717f;
+}
+
+/* ==========================================================================
+   Connected Apps
+   ========================================================================== */
+
+.account-apps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.account-app-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.account-app-item:last-child {
+  border-bottom: none;
+}
+
+.account-app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #f0f0f5;
+  color: #71717f;
+  flex-shrink: 0;
+}
+
+.account-app-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-app-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 2px;
+}
+
+.account-app-perms {
+  font-size: 13px;
+  color: #9090a0;
+  margin: 0;
+}
+
+.account-btn--small {
+  padding: 6px 16px;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   Redeem
+   ========================================================================== */
+
+.account-redeem-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: #fafafa;
+  border: 1px solid #e8e8ed;
+  border-radius: 12px;
+}
+
+.account-redeem-icon {
+  color: #33ffee;
+  margin-bottom: 16px;
+}
+
+.account-redeem-desc {
+  font-size: 15px;
+  color: #71717f;
+  margin: 0 0 28px;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.account-redeem-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.account-redeem-form .account-field {
+  width: 100%;
+  max-width: 360px;
+}
+
+.account-redeem-form .account-input {
+  text-align: center;
+}
+
+.account-redeem-message {
+  font-size: 14px;
+  font-weight: 500;
+  color: #33ffee;
+  margin: 16px 0 0;
+}
+
+.account-redeem-message--error {
+  color: #dc2626;
+}
+
+.account-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.account-btn:disabled:active {
+  transform: none;
+}
+
+/* ==========================================================================
+   FAQ Accordion
+   ========================================================================== */
+
+.account-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.account-faq-item {
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.account-faq-item:last-child {
+  border-bottom: none;
+}
+
+.account-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 0;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #191919;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: color 0.12s ease;
+  gap: 16px;
+}
+
+.account-faq-question:hover {
+  color: #33ffee;
+}
+
+.account-faq-question iconify-icon {
+  flex-shrink: 0;
+  color: #9090a0;
+  transition: color 0.12s ease;
+}
+
+.account-faq-item--open .account-faq-question iconify-icon {
+  color: #33ffee;
+}
+
+.account-faq-answer {
+  padding: 0 0 20px;
+}
+
+.account-faq-answer p {
+  font-size: 14px;
+  color: #71717f;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Benefits List (Subscription page)
+   ========================================================================== */
+
+.account-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.account-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f5;
+  color: #71717f;
+}
+
+.account-benefit-item:last-child {
+  border-bottom: none;
+}
+
+.account-benefit-item iconify-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #33ffee;
+}
+
+.account-benefit-content {
+  flex: 1;
+}
+
+.account-benefit-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 4px;
+}
+
+.account-benefit-desc {
+  font-size: 13px;
+  color: #9090a0;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Subscription inactive badge */
+.account-subscription-value--inactive {
+  color: #dc2626;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .account-nav-inner {
+    padding: 0 24px;
+  }
+
+  .account-hero-inner {
+    padding: 40px 24px;
+  }
+
+  .account-hero-title {
+    font-size: 32px;
+  }
+
+  .account-hero-visual {
+    display: none;
+  }
+
+  .account-content {
+    padding: 0 24px;
+  }
+
+  .account-body {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .account-sidebar {
+    width: 100%;
+  }
+
+  .account-sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    position: static;
+  }
+
+  .account-sidebar-item {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .account-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .account-footer-links {
+    gap: 16px;
+  }
+
+  .account-footer-inner {
+    padding: 24px;
+  }
+
+  .account-toggle-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .account-app-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .account-nav-inner {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .account-nav-links {
+    gap: 16px;
+  }
+
+  .account-nav-link {
+    font-size: 12px;
+  }
+
+  .account-hero-inner {
+    padding: 32px 16px;
+  }
+
+  .account-hero-title {
+    font-size: 26px;
+  }
+
+  .account-content {
+    padding: 0 16px;
+  }
+
+  .account-field-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .account-field-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .account-profile-card {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .account-profile-status {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .account-redeem-card {
+    padding: 28px 16px;
+  }
+
+  .account-faq-question {
+    font-size: 14px;
+    padding: 14px 0;
+  }
+}
