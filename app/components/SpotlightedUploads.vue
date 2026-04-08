@@ -11,7 +11,7 @@
       </template>
     </SectionHeader>
     <div class="spotlight-list">
-      <NuxtLink v-for="item in spotlightedUploads" :key="item.title" to="/song/reckless-love" class="spotlight-item">
+      <NuxtLink v-for="item in spotlightedUploads" :key="item.title" :to="`/song/${item.slug}`" class="spotlight-item">
         <img :src="item.image" :alt="item.title" />
         <div class="spotlight-item-info">
           <span class="spotlight-item-title" :style="item.highlight ? { color: '#f5a623' } : {}">
@@ -27,5 +27,16 @@
 </template>
 
 <script setup lang="ts">
-import { spotlightedUploads } from '~/data/mockData'
+import { getAllSongs } from '~/data/songDatabase'
+
+const songs = getAllSongs()
+const spotlightedUploads = songs.slice(7, 13).map((s, i) => ({
+  title: s.title,
+  artist: s.artist,
+  slug: s.slug,
+  image: s.cover,
+  highlight: i % 2 === 1,
+  explicit: false,
+  youtubeId: s.youtubeId,
+}))
 </script>

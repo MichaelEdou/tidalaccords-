@@ -2,7 +2,7 @@
   <div class="section">
     <SectionHeader title="Popular albums" :show-arrows="true" />
     <div class="grid-7">
-      <NuxtLink v-for="album in popularAlbums" :key="album.title" to="/song/reckless-love" class="card">
+      <NuxtLink v-for="album in popularAlbums" :key="album.title" :to="`/song/${album.slug}`" class="card">
         <div class="card-img-wrapper">
           <img :src="album.image" :alt="album.title" />
           <div
@@ -36,5 +36,16 @@
 </template>
 
 <script setup lang="ts">
-import { popularAlbums } from '~/data/mockData'
+import { getAllSongs } from '~/data/songDatabase'
+
+const songs = getAllSongs()
+const popularAlbums = songs.slice(0, 7).map(s => ({
+  title: s.title,
+  artist: s.artist,
+  slug: s.slug,
+  image: s.cover,
+  explicit: false,
+  showPlay: true,
+  youtubeId: s.youtubeId,
+}))
 </script>

@@ -56,7 +56,29 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { popularArtists, trendingTracks } from '~/data/mockData'
+import { getAllSongs } from '~/data/songDatabase'
+
+const allSongs = getAllSongs()
+
+const seen = new Set<string>()
+const popularArtists = allSongs.reduce<{ name: string; image: string }[]>((acc, s) => {
+  if (!seen.has(s.artist)) {
+    seen.add(s.artist)
+    acc.push({ name: s.artist, image: s.cover })
+  }
+  return acc
+}, [])
+
+const trendingTracks = allSongs.slice(0, 5).map((s, i) => ({
+  number: i + 1,
+  title: s.title,
+  artist: s.artist,
+  album: s.title,
+  duration: s.duration,
+  slug: s.slug,
+  image: s.cover,
+  youtubeId: s.youtubeId,
+}))
 
 const query = ref('')
 const showDropdown = ref(false)

@@ -784,6 +784,7 @@
   overflow-y: hidden;
   scroll-behavior: smooth;
   padding-bottom: 8px;
+  min-height: 100px;
 }
 
 .progression-hscroll::-webkit-scrollbar {
@@ -831,61 +832,63 @@
   gap: 8px;
 }
 
-.measure-h {
-  width: 80px;
+/* Measure box — chord + 3 dot beats in 4/4 */
+.measure-box {
   flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 4px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   background: var(--secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  transition: all 0.2s;
+  overflow: hidden;
 }
 
-.measure-h-active {
-  background: var(--primary);
-  border-color: var(--primary);
+.measure-box-active {
+  border-color: #e63946;
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
 }
 
-.measure-h-active .beat-h-chord {
-  color: var(--primary-foreground);
+.measure-beat {
+  min-width: 52px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
 }
 
-.measure-h-active .beat-h-dot {
-  background: rgba(255, 255, 255, 0.4);
+.measure-beat:last-child {
+  border-right: none;
 }
 
-.measure-h-active .beat-h-dot.filled {
-  background: var(--primary-foreground);
-}
-
-.beat-h-chord {
-  font-size: 18px;
+.measure-beat-chord {
+  font-size: 15px;
   font-weight: 800;
   color: var(--foreground);
-  line-height: 1;
+  padding: 0 6px;
+  white-space: nowrap;
 }
 
-.beat-h-dots {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
-.beat-h-dot {
-  width: 5px;
-  height: 5px;
+.beat-dot-center {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--muted-foreground);
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
-.beat-h-dot.filled {
-  opacity: 0.8;
-  background: var(--foreground);
+/* Single beat highlight — only one box red at a time */
+.beat-on {
+  background: #e63946;
+}
+
+.beat-on.measure-beat-chord {
+  color: #ffffff;
+}
+
+.beat-on .beat-dot-center {
+  background: #ffffff;
+  opacity: 1;
 }
 
 .section-tag-active {

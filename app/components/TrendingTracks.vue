@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="track in trendingTracks" :key="track.number" style="cursor: pointer" @click="$router.push('/song/reckless-love')">
+        <tr v-for="track in trendingTracks" :key="track.number" style="cursor: pointer" @click="$router.push(`/song/${track.slug}`)">
           <td style="color: var(--muted-foreground)">{{ track.number }}</td>
           <td>
             <div class="track-title-cell">
@@ -39,5 +39,17 @@
 </template>
 
 <script setup lang="ts">
-import { trendingTracks } from '~/data/mockData'
+import { getAllSongs } from '~/data/songDatabase'
+
+const songs = getAllSongs()
+const trendingTracks = songs.slice(0, 5).map((s, i) => ({
+  number: i + 1,
+  title: s.title,
+  artist: s.artist,
+  album: s.title,
+  duration: s.duration,
+  slug: s.slug,
+  image: s.cover,
+  youtubeId: s.youtubeId,
+}))
 </script>

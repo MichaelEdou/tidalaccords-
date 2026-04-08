@@ -1,21 +1,18 @@
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
   const query = getQuery(event)
-  const audioId = query.audioId as string
+  const videoId = (query.videoId as string || '').replace('yt-', '')
 
-  if (!audioId) {
-    throw createError({ statusCode: 400, message: 'audioId is required' })
+  if (!videoId) {
+    throw createError({ statusCode: 400, message: 'videoId required' })
   }
 
-  // Poll the detect endpoint with the same audioId to check status/get results
-  const response = await $fetch(`${config.chordApiUrl}/detect`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-API-Key': config.chordApiKey,
-    },
-    body: { audioUrl: '', audioId },
-  })
-
-  return response
+  // Try local pipeline server
+  try {
+    const response = await $fetch(`http://localhost:5200/song/${videoId}`, {
+      timeout: 5000,
+    })
+    return response
+  } catch {
+    return { status: 'processing', videoId }
+  }
 })

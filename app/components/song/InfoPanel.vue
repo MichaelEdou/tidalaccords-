@@ -104,26 +104,34 @@ const { setYTPlayer, setCurrentTime, setDuration, setIsPlaying } = usePlayer()
 const allKeys = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 
 const currentKey = computed(() => {
-  const idx = (((props.transpose ?? 0) % 12) + 12) % 12
-  return allKeys[idx] + ' major'
+  const origKey = song.value.originalKey || 'C'
+  // Find the original key index
+  const origRoot = origKey.replace('m', '')
+  const origIdx = allKeys.indexOf(origRoot)
+  if (origIdx === -1) return origKey
+  // Apply transpose
+  const newIdx = ((origIdx + (props.transpose ?? 0)) % 12 + 12) % 12
+  const suffix = origKey.includes('m') ? 'm' : ' major'
+  return allKeys[newIdx] + suffix
 })
 
-const song = computed(() => props.song ?? {
-  title: 'Reckless Love',
-  artist: 'Cory Asbury',
-  cover: 'https://i.ytimg.com/vi/Sc6SSHuZvQE/hqdefault.jpg',
-  youtubeId: 'Sc6SSHuZvQE',
-  bpm: 72,
-  tempo: 'Slow Ballad',
-  rhythm: '4/4 Straight',
-  duration: '5:31',
-  difficulty: 'Intermediate',
+const song = computed(() => props.song as any ?? {
+  title: 'Unknown',
+  artist: 'Unknown',
+  cover: '',
+  youtubeId: '',
+  bpm: 0,
+  tempo: '',
+  rhythm: '',
+  duration: '0:00',
+  difficulty: '',
   capo: 0,
   timeSignature: '4/4',
-  tags: ['Worship', 'Gospel', 'Ballad', 'Piano', 'Guitar'],
+  originalKey: 'C',
+  tags: [],
 })
 
-const playerId = 'yt-player-' + (props.song?.youtubeId ?? 'Sc6SSHuZvQE')
+const playerId = computed(() => 'yt-player-' + (song.value.youtubeId || 'default'))
 const playerEl = ref<HTMLElement | null>(null)
 let timeUpdateInterval: ReturnType<typeof setInterval> | null = null
 let ytPlayerInstance: any = null
@@ -151,7 +159,7 @@ function initPlayer() {
   const YT = (window as any).YT
   if (!YT || !YT.Player) return
 
-  ytPlayerInstance = new YT.Player(playerId, {
+  ytPlayerInstance = new YT.Player(playerId.value, {
     height: '100%',
     width: '100%',
     videoId: song.value.youtubeId,
@@ -178,7 +186,7 @@ function onPlayerReady(event: any) {
     if (ytPlayerInstance && ytPlayerInstance.getCurrentTime) {
       setCurrentTime(ytPlayerInstance.getCurrentTime())
     }
-  }, 250) // 4x per second for smooth timeline sync
+  }, 100) // 10x per second for tight chord sync
 }
 
 function onPlayerStateChange(event: any) {

@@ -13,5 +13,15 @@
 </template>
 
 <script setup lang="ts">
-import { popularArtists } from '~/data/mockData'
+import { getAllSongs } from '~/data/songDatabase'
+
+const songs = getAllSongs()
+const seen = new Set<string>()
+const popularArtists = songs.reduce<{ name: string; image: string }[]>((acc, s) => {
+  if (!seen.has(s.artist)) {
+    seen.add(s.artist)
+    acc.push({ name: s.artist, image: s.cover })
+  }
+  return acc
+}, [])
 </script>

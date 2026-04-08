@@ -97,6 +97,7 @@ import { ref, computed, nextTick } from 'vue'
 const props = defineProps<{
   instrument: 'guitar' | 'piano'
   transpose: number
+  originalKey?: string
 }>()
 
 const emit = defineEmits<{
@@ -137,8 +138,12 @@ function skipForward() {
 const allKeys = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 
 const currentKeyName = computed(() => {
-  const idx = ((props.transpose % 12) + 12) % 12
-  return allKeys[idx]
+  const origKey = (props.originalKey || 'C').replace('m', '')
+  const origIdx = allKeys.indexOf(origKey)
+  if (origIdx === -1) return props.originalKey || 'C'
+  const newIdx = ((origIdx + props.transpose) % 12 + 12) % 12
+  const suffix = (props.originalKey || '').includes('m') ? 'm' : ''
+  return allKeys[newIdx] + suffix
 })
 
 const showKeys = ref(false)

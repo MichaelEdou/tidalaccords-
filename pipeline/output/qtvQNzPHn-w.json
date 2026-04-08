@@ -1,0 +1,903 @@
+{
+  "videoId": "qtvQNzPHn-w",
+  "title": "Battle Belongs",
+  "artist": "Phil Wickham",
+  "key": "C#",
+  "bpm": 81,
+  "duration": 285.16,
+  "durationFormatted": "4:45",
+  "timeSignature": "4/4",
+  "chords": [
+    {
+      "start": 0.0,
+      "end": 3.7,
+      "chord": "N"
+    },
+    {
+      "start": 3.7,
+      "end": 4.8,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 4.8,
+      "end": 23.2,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 23.2,
+      "end": 30.8,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 30.8,
+      "end": 33.5,
+      "chord": "A#:min"
+    },
+    {
+      "start": 33.5,
+      "end": 35.0,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 35.0,
+      "end": 38.2,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 38.2,
+      "end": 44.8,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 44.8,
+      "end": 50.4,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 50.4,
+      "end": 54.4,
+      "chord": "A#:min"
+    },
+    {
+      "start": 54.4,
+      "end": 61.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 61.6,
+      "end": 63.1,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 63.1,
+      "end": 64.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 64.6,
+      "end": 66.1,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 66.1,
+      "end": 67.5,
+      "chord": "A#:min"
+    },
+    {
+      "start": 67.5,
+      "end": 69.1,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 69.1,
+      "end": 70.7,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 70.7,
+      "end": 72.1,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 72.1,
+      "end": 73.4,
+      "chord": "A#:min"
+    },
+    {
+      "start": 73.4,
+      "end": 75.1,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 75.1,
+      "end": 76.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 76.6,
+      "end": 77.9,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 77.9,
+      "end": 79.3,
+      "chord": "A#:min"
+    },
+    {
+      "start": 79.3,
+      "end": 81.0,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 81.0,
+      "end": 82.5,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 82.5,
+      "end": 83.9,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 83.9,
+      "end": 95.8,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 95.8,
+      "end": 101.7,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 101.7,
+      "end": 106.0,
+      "chord": "A#:min"
+    },
+    {
+      "start": 106.0,
+      "end": 107.6,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 107.6,
+      "end": 110.6,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 110.6,
+      "end": 116.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 116.6,
+      "end": 122.6,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 122.6,
+      "end": 126.8,
+      "chord": "A#:min"
+    },
+    {
+      "start": 126.8,
+      "end": 128.3,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 128.3,
+      "end": 134.3,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 134.3,
+      "end": 135.8,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 135.8,
+      "end": 137.3,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 137.3,
+      "end": 138.7,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 138.7,
+      "end": 140.1,
+      "chord": "A#:min"
+    },
+    {
+      "start": 140.1,
+      "end": 141.7,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 141.7,
+      "end": 143.2,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 143.2,
+      "end": 144.6,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 144.6,
+      "end": 146.1,
+      "chord": "A#:min"
+    },
+    {
+      "start": 146.1,
+      "end": 147.5,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 147.5,
+      "end": 148.9,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 148.9,
+      "end": 150.5,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 150.5,
+      "end": 152.0,
+      "chord": "A#:min"
+    },
+    {
+      "start": 152.0,
+      "end": 153.5,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 153.5,
+      "end": 155.0,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 155.0,
+      "end": 156.5,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 156.5,
+      "end": 159.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 159.6,
+      "end": 162.5,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 162.5,
+      "end": 165.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 165.6,
+      "end": 168.4,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 168.4,
+      "end": 169.7,
+      "chord": "A#:min"
+    },
+    {
+      "start": 169.7,
+      "end": 171.4,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 171.4,
+      "end": 174.3,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 174.3,
+      "end": 179.2,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 179.2,
+      "end": 180.2,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 180.2,
+      "end": 181.6,
+      "chord": "A#:min"
+    },
+    {
+      "start": 181.6,
+      "end": 183.2,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 183.2,
+      "end": 186.3,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 186.3,
+      "end": 189.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 189.6,
+      "end": 192.0,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 192.0,
+      "end": 193.8,
+      "chord": "A#:min"
+    },
+    {
+      "start": 193.8,
+      "end": 195.1,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 195.1,
+      "end": 198.0,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 198.0,
+      "end": 201.4,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 201.4,
+      "end": 204.0,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 204.0,
+      "end": 205.6,
+      "chord": "A#:min"
+    },
+    {
+      "start": 205.6,
+      "end": 207.0,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 207.0,
+      "end": 209.8,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 209.8,
+      "end": 212.8,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 212.8,
+      "end": 215.8,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 215.8,
+      "end": 217.2,
+      "chord": "A#:min"
+    },
+    {
+      "start": 217.2,
+      "end": 218.7,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 218.7,
+      "end": 221.7,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 221.7,
+      "end": 224.6,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 224.6,
+      "end": 227.6,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 227.6,
+      "end": 229.1,
+      "chord": "A#:min"
+    },
+    {
+      "start": 229.1,
+      "end": 230.9,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 230.9,
+      "end": 233.6,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 233.6,
+      "end": 236.4,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 236.4,
+      "end": 238.1,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 238.1,
+      "end": 239.4,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 239.4,
+      "end": 241.0,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 241.0,
+      "end": 242.3,
+      "chord": "A#:min"
+    },
+    {
+      "start": 242.3,
+      "end": 243.9,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 243.9,
+      "end": 245.4,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 245.4,
+      "end": 246.8,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 246.8,
+      "end": 248.3,
+      "chord": "A#:min"
+    },
+    {
+      "start": 248.3,
+      "end": 249.8,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 249.8,
+      "end": 251.3,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 251.3,
+      "end": 252.8,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 252.8,
+      "end": 254.2,
+      "chord": "A#:min"
+    },
+    {
+      "start": 254.2,
+      "end": 255.7,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 255.7,
+      "end": 257.2,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 257.2,
+      "end": 258.7,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 258.7,
+      "end": 260.0,
+      "chord": "A#:min"
+    },
+    {
+      "start": 260.0,
+      "end": 261.7,
+      "chord": "F#:maj"
+    },
+    {
+      "start": 261.7,
+      "end": 263.3,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 263.3,
+      "end": 264.7,
+      "chord": "G#:maj"
+    },
+    {
+      "start": 264.7,
+      "end": 278.7,
+      "chord": "C#:maj"
+    },
+    {
+      "start": 278.7,
+      "end": 285.2,
+      "chord": "N"
+    }
+  ],
+  "sections": [
+    {
+      "section": "INTRO",
+      "chords": [
+        "N",
+        "F#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 1",
+      "chords": [
+        "F#:maj",
+        "F#:maj",
+        "A#:min",
+        "G#:maj",
+        "F#:maj",
+        "C#:maj",
+        "C#:maj",
+        "F#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 2",
+      "chords": [
+        "F#:maj",
+        "A#:min",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "A#:min",
+        "C#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 3",
+      "chords": [
+        "A#:min",
+        "C#:maj",
+        "A#:min",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 4",
+      "chords": [
+        "F#:maj",
+        "F#:maj",
+        "A#:min",
+        "A#:min",
+        "F#:maj",
+        "C#:maj",
+        "C#:maj",
+        "F#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 5",
+      "chords": [
+        "F#:maj",
+        "A#:min",
+        "A#:min",
+        "C#:maj",
+        "C#:maj",
+        "F#:maj",
+        "G#:maj",
+        "F#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 6",
+      "chords": [
+        "G#:maj",
+        "F#:maj",
+        "G#:maj",
+        "F#:maj",
+        "G#:maj",
+        "C#:maj",
+        "F#:maj",
+        "C#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 7",
+      "chords": [
+        "G#:maj",
+        "G#:maj",
+        "F#:maj",
+        "C#:maj",
+        "C#:maj",
+        "G#:maj",
+        "F#:maj",
+        "C#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 8",
+      "chords": [
+        "G#:maj",
+        "G#:maj",
+        "F#:maj",
+        "C#:maj",
+        "G#:maj",
+        "G#:maj",
+        "F#:maj",
+        "C#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 9",
+      "chords": [
+        "G#:maj",
+        "G#:maj",
+        "F#:maj",
+        "C#:maj",
+        "G#:maj",
+        "G#:maj",
+        "F#:maj",
+        "G#:maj"
+      ]
+    },
+    {
+      "section": "SECTION 10",
+      "chords": [
+        "C#:maj",
+        "A#:min",
+        "C#:maj",
+        "A#:min",
+        "C#:maj",
+        "A#:min",
+        "C#:maj",
+        "A#:min"
+      ]
+    },
+    {
+      "section": "SECTION 11",
+      "chords": [
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj",
+        "C#:maj"
+      ]
+    }
+  ],
+  "beats": [
+    0.0,
+    0.76,
+    1.5,
+    2.26,
+    3.02,
+    3.78,
+    4.53,
+    5.26,
+    6.01,
+    6.75,
+    7.49,
+    8.23,
+    8.97,
+    9.71,
+    10.45,
+    11.19,
+    11.93,
+    12.67,
+    13.41,
+    14.15,
+    14.89,
+    15.64,
+    16.38,
+    17.12,
+    17.86,
+    18.6,
+    19.34,
+    20.08,
+    20.82,
+    21.56,
+    22.3,
+    23.04,
+    23.78,
+    24.53,
+    25.27,
+    26.01,
+    26.75,
+    27.49,
+    28.23,
+    28.97,
+    29.71,
+    30.45,
+    31.19,
+    31.93,
+    32.67,
+    33.41,
+    34.15,
+    34.9,
+    35.63,
+    36.38,
+    37.12,
+    37.86,
+    38.6,
+    39.34,
+    40.08,
+    40.82,
+    41.56,
+    42.3,
+    43.04,
+    43.79,
+    44.52,
+    45.27,
+    46.01,
+    46.75,
+    47.49,
+    48.23,
+    48.97,
+    49.71,
+    50.45,
+    51.19,
+    51.93,
+    52.67,
+    53.41,
+    54.16,
+    54.89,
+    55.64,
+    56.38,
+    57.12,
+    57.86,
+    58.6,
+    59.34,
+    60.08,
+    60.82,
+    61.58,
+    62.28,
+    63.0,
+    63.74,
+    64.52,
+    65.26,
+    66.0,
+    66.68,
+    67.44,
+    68.12,
+    68.85,
+    69.61,
+    70.38,
+    71.13,
+    71.92,
+    72.65,
+    73.43,
+    74.16,
+    74.9,
+    75.64,
+    76.39,
+    77.12,
+    77.86,
+    78.6,
+    79.36,
+    80.08,
+    80.84,
+    81.56,
+    82.33,
+    83.06,
+    83.78,
+    84.52,
+    85.27,
+    86.01,
+    86.75,
+    87.49,
+    88.23,
+    88.97,
+    89.72,
+    90.45,
+    91.19,
+    91.93,
+    92.67,
+    93.41,
+    94.16,
+    94.9,
+    95.64,
+    96.38,
+    97.12,
+    97.86,
+    98.6,
+    99.34,
+    100.08,
+    100.82,
+    101.57,
+    102.3,
+    103.05,
+    103.78,
+    104.53,
+    105.27,
+    106.01,
+    106.75,
+    107.49,
+    108.23,
+    108.97,
+    109.71,
+    110.45,
+    111.19,
+    111.93,
+    112.67,
+    113.42,
+    114.15,
+    114.9,
+    115.63,
+    116.38,
+    117.12,
+    117.86,
+    118.6,
+    119.34,
+    120.08,
+    120.82,
+    121.56,
+    122.31,
+    123.04,
+    123.79,
+    124.52,
+    125.27,
+    126.0,
+    126.75,
+    127.49,
+    128.23,
+    128.98,
+    129.72,
+    130.45,
+    131.19,
+    131.93,
+    132.67,
+    133.41,
+    134.15,
+    134.89,
+    135.64,
+    136.38,
+    137.12,
+    137.86,
+    138.6,
+    139.34,
+    140.09,
+    140.82,
+    141.57,
+    142.3,
+    143.05,
+    143.78,
+    144.53,
+    145.26,
+    146.01,
+    146.75,
+    147.49
+  ],
+  "processingTime": 172.4,
+  "status": "ready",
+  "pipeline": "demucs+madmom+crema+theory",
+  "models": [
+    "madmom-cnn-crf"
+  ]
+}
