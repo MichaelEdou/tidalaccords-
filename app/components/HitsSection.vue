@@ -2,7 +2,7 @@
   <div class="section">
     <SectionHeader title="The Hits" :show-arrows="true" />
     <div class="grid-6">
-      <NuxtLink v-for="hit in hits" :key="hit.title" to="/song" class="card">
+      <NuxtLink v-for="hit in hits" :key="hit.title" to="/song/reckless-love" class="card">
         <div class="card-img-wrapper">
           <img :src="hit.image" :alt="hit.title" />
           <div

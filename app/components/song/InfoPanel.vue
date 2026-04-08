@@ -92,8 +92,11 @@
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount } from 'vue'
 
+import type { SongData } from '~/data/songDatabase'
+
 const props = defineProps<{
   transpose?: number
+  song?: SongData
 }>()
 
 const { setYTPlayer, setCurrentTime, setDuration, setIsPlaying } = usePlayer()
@@ -105,22 +108,22 @@ const currentKey = computed(() => {
   return allKeys[idx] + ' major'
 })
 
-const song = {
+const song = computed(() => props.song ?? {
   title: 'Reckless Love',
   artist: 'Cory Asbury',
   cover: 'https://i.ytimg.com/vi/Sc6SSHuZvQE/hqdefault.jpg',
   youtubeId: 'Sc6SSHuZvQE',
-  bpm: '72',
+  bpm: 72,
   tempo: 'Slow Ballad',
   rhythm: '4/4 Straight',
   duration: '5:31',
   difficulty: 'Intermediate',
-  capo: '0',
+  capo: 0,
   timeSignature: '4/4',
-  tags: ['Worship', 'Gospel', 'Ballad', 'Piano', 'Guitar', 'Contemporary Christian'],
-}
+  tags: ['Worship', 'Gospel', 'Ballad', 'Piano', 'Guitar'],
+})
 
-const playerId = 'yt-player-' + song.youtubeId
+const playerId = 'yt-player-' + (props.song?.youtubeId ?? 'Sc6SSHuZvQE')
 const playerEl = ref<HTMLElement | null>(null)
 let timeUpdateInterval: ReturnType<typeof setInterval> | null = null
 let ytPlayerInstance: any = null
@@ -151,7 +154,7 @@ function initPlayer() {
   ytPlayerInstance = new YT.Player(playerId, {
     height: '100%',
     width: '100%',
-    videoId: song.youtubeId,
+    videoId: song.value.youtubeId,
     playerVars: {
       rel: 0,
       modestbranding: 1,

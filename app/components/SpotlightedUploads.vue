@@ -11,7 +11,7 @@
       </template>
     </SectionHeader>
     <div class="spotlight-list">
-      <NuxtLink v-for="item in spotlightedUploads" :key="item.title" to="/song" class="spotlight-item">
+      <NuxtLink v-for="item in spotlightedUploads" :key="item.title" to="/song/reckless-love" class="spotlight-item">
         <img :src="item.image" :alt="item.title" />
         <div class="spotlight-item-info">
           <span class="spotlight-item-title" :style="item.highlight ? { color: '#f5a623' } : {}">

@@ -1,47 +1,58 @@
 <template>
-  <div class="chord-timeline-card surface">
-    <div class="chord-timeline-header">
+  <div class="sheet-card surface">
+    <div class="sheet-header">
       <div class="sheet-title-wrap">
         <h2 class="sheet-title">Chord progression</h2>
-        <div class="sheet-sub">Auto-scrolling timeline synced to playback.</div>
+        <div class="sheet-sub">
+          {{ song ? `${song.title} — ${song.artist} • Key of ${song.originalKey}` : 'Synced to playback.' }}
+        </div>
+      </div>
+      <div class="section-tag-row">
+        <div
+          v-for="sec in uniqueSectionNames"
+          :key="sec"
+          class="section-tag"
+          :class="{ 'section-tag-active': sec === currentSectionName }"
+        >
+          {{ sec }}
+        </div>
       </div>
     </div>
 
-    <!-- Scrolling timeline -->
-    <div class="chord-timeline-viewport" ref="viewportRef">
-      <div
-        class="chord-timeline-track"
-        ref="trackRef"
-        :style="{ transform: `translateX(${trackOffset}px)` }"
-      >
+    <!-- Horizontally scrollable chord sections -->
+    <div class="progression-hscroll" ref="scrollContainer">
+      <div class="progression-hscroll-track">
         <div
-          v-for="(item, idx) in allChords"
-          :key="idx"
-          class="chord-timeline-item"
-          :class="{
-            active: idx === activeIndex,
-            past: idx < activeIndex,
-            'section-start': item.sectionStart
-          }"
+          v-for="(group, gi) in groupedSections"
+          :key="gi"
+          class="song-section-h"
+          :ref="el => sectionRefs[gi] = el as HTMLElement"
         >
-          <div v-if="item.sectionStart" class="chord-timeline-section-label">
-            {{ item.section }}
+          <div class="section-name-h">{{ group.section }}</div>
+          <div class="measure-rows-h">
+            <div
+              v-for="(line, li) in group.lines"
+              :key="li"
+              class="measure-row-h"
+            >
+              <div
+                v-for="(chord, ci) in line.chords"
+                :key="gi + '-' + li + '-' + ci"
+                class="measure-h"
+                :class="{ 'measure-h-active': isActiveBeat(line.globalStart + ci) }"
+              >
+                <div class="beat-h-chord">{{ chord }}</div>
+                <div class="beat-h-dots">
+                  <span class="beat-h-dot filled"></span>
+                  <span class="beat-h-dot"></span>
+                  <span class="beat-h-dot"></span>
+                  <span class="beat-h-dot"></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="chord-timeline-chord">{{ item.chord }}</div>
-          <div class="chord-timeline-beats">
-            <span
-              v-for="b in 4"
-              :key="b"
-              class="chord-timeline-beat-dot"
-              :class="{ filled: b === 1 }"
-            ></span>
-          </div>
-          <div class="chord-timeline-bar-num">{{ idx + 1 }}</div>
         </div>
       </div>
-
-      <!-- Center marker -->
-      <div class="chord-timeline-cursor"></div>
     </div>
 
     <!-- Progress bar -->
@@ -56,9 +67,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import type { SongData } from '~/data/songDatabase'
 
 const props = defineProps<{
   transpose?: number
+  song?: SongData
 }>()
 
 const noteNames = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
@@ -76,71 +89,116 @@ function transposeChord(chord: string, semitones: number): string {
   return noteNames[newIdx] + suffix
 }
 
-// Real chord progression: "Reckless Love" by Cory Asbury (Key of C, 72 BPM)
-const songStructure = [
-  { section: 'INTRO', chords: ['C', 'C', 'Am', 'Am', 'F', 'F', 'C', 'C'] },
-  { section: 'VERSE 1', chords: ['C', 'C', 'Am', 'Am', 'F', 'F', 'C', 'C'] },
-  { section: 'PRE-CHORUS', chords: ['Am', 'G', 'F', 'F'] },
-  { section: 'CHORUS', chords: ['C', 'C', 'G', 'G', 'Am', 'Am', 'F', 'F', 'C', 'C', 'G', 'G', 'Am', 'Am', 'F', 'F'] },
-  { section: 'VERSE 2', chords: ['C', 'C', 'Am', 'Am', 'F', 'F', 'C', 'C'] },
-  { section: 'PRE-CHORUS', chords: ['Am', 'G', 'F', 'F'] },
-  { section: 'CHORUS', chords: ['C', 'C', 'G', 'G', 'Am', 'Am', 'F', 'F', 'C', 'C', 'G', 'G', 'Am', 'Am', 'F', 'F'] },
-  { section: 'BRIDGE', chords: ['Am', 'Am', 'G', 'G', 'F', 'F', 'C', 'C', 'Am', 'Am', 'G', 'G', 'F', 'F', 'C', 'C'] },
-  { section: 'CHORUS', chords: ['C', 'C', 'G', 'G', 'Am', 'Am', 'F', 'F'] },
-  { section: 'OUTRO', chords: ['C', 'C', 'Am', 'Am', 'F', 'F', 'C', 'C'] },
-]
+const songSections = computed(() => props.song?.sections ?? [])
 
-const allChords = computed(() => {
-  const items: { chord: string; section: string; sectionStart: boolean }[] = []
-  for (const sec of songStructure) {
-    sec.chords.forEach((chord, i) => {
-      items.push({
-        chord: transposeChord(chord, props.transpose ?? 0),
-        section: sec.section,
-        sectionStart: i === 0,
-      })
-    })
-  }
-  return items
+// Unique section names for the tag row
+const uniqueSectionNames = computed(() => {
+  const seen = new Set<string>()
+  return songSections.value.filter(s => {
+    if (seen.has(s.section)) return false
+    seen.add(s.section)
+    return true
+  }).map(s => s.section)
 })
 
-// Sync with YouTube player via shared composable
-const { currentTime, duration, isPlaying, progress: playerProgress } = usePlayer()
-
-const trackOffset = ref(0)
-const viewportRef = ref<HTMLElement | null>(null)
-const itemWidth = 120
-
-// BPM = 72, 4 beats per bar => 1 bar duration in seconds
-const barDuration = 4 * (60 / 72) // ~3.33s per bar
-
-// Calculate active chord index from current playback time
-const activeIndex = computed(() => {
-  const time = currentTime.value
-  const totalBars = allChords.value.length
-  const idx = Math.floor(time / barDuration)
-  return Math.min(idx, totalBars - 1)
-})
-
-const progressPercent = computed(() => {
-  if (allChords.value.length === 0) return 0
-  return (activeIndex.value / allChords.value.length) * 100
-})
-
-function updateOffset() {
-  if (!viewportRef.value) return
-  const viewportWidth = viewportRef.value.clientWidth
-  const centerOffset = viewportWidth / 2 - itemWidth / 2
-  trackOffset.value = centerOffset - activeIndex.value * itemWidth
+// Group consecutive sections with the same name together
+// Each group has multiple "lines" (rows of chords)
+interface ChordLine {
+  chords: string[]
+  globalStart: number // global index of first chord in this line
 }
 
-// Watch activeIndex to auto-scroll
-watch(activeIndex, () => {
-  updateOffset()
+interface SectionGroup {
+  section: string
+  lines: ChordLine[]
+}
+
+const groupedSections = computed((): SectionGroup[] => {
+  const groups: SectionGroup[] = []
+  let globalIdx = 0
+
+  for (const sec of songSections.value) {
+    const transposed = sec.chords.map(c => transposeChord(c, props.transpose ?? 0))
+    const lastGroup = groups[groups.length - 1]
+
+    if (lastGroup && lastGroup.section === sec.section) {
+      // Same section name — add as a new line in the same group
+      lastGroup.lines.push({ chords: transposed, globalStart: globalIdx })
+    } else {
+      // New section group
+      groups.push({
+        section: sec.section,
+        lines: [{ chords: transposed, globalStart: globalIdx }],
+      })
+    }
+    globalIdx += sec.chords.length
+  }
+  return groups
 })
 
-// Initialize offset on mount
-onMounted(() => {
-  updateOffset()
+// Total flat chord count
+const totalChords = computed(() => {
+  return songSections.value.reduce((sum, s) => sum + s.chords.length, 0)
+})
+
+// Sync with YouTube player
+const { currentTime } = usePlayer()
+
+const bpm = computed(() => props.song?.bpm ?? 72)
+const barDuration = computed(() => 4 * (60 / bpm.value))
+
+const activeGlobalIndex = computed(() => {
+  const time = currentTime.value
+  const idx = Math.floor(time / barDuration.value)
+  return Math.min(Math.max(idx, 0), totalChords.value - 1)
+})
+
+// Find which section the active index is in
+const currentSectionName = computed(() => {
+  let count = 0
+  for (const sec of songSections.value) {
+    count += sec.chords.length
+    if (activeGlobalIndex.value < count) {
+      return sec.section
+    }
+  }
+  return ''
+})
+
+function isActiveBeat(globalIndex: number): boolean {
+  return activeGlobalIndex.value === globalIndex
+}
+
+const progressPercent = computed(() => {
+  if (totalChords.value === 0) return 0
+  return ((activeGlobalIndex.value + 1) / totalChords.value) * 100
+})
+
+// Auto-scroll to active group
+const scrollContainer = ref<HTMLElement | null>(null)
+const sectionRefs = ref<(HTMLElement | null)[]>([])
+
+watch(activeGlobalIndex, () => {
+  // Find which group contains the active index
+  for (let gi = 0; gi < groupedSections.value.length; gi++) {
+    const group = groupedSections.value[gi]
+    for (const line of group.lines) {
+      const lineEnd = line.globalStart + line.chords.length
+      if (activeGlobalIndex.value >= line.globalStart && activeGlobalIndex.value < lineEnd) {
+        const el = sectionRefs.value[gi]
+        if (el && scrollContainer.value) {
+          const containerLeft = scrollContainer.value.scrollLeft
+          const containerWidth = scrollContainer.value.clientWidth
+          const elLeft = el.offsetLeft
+          const elRight = elLeft + el.clientWidth
+
+          if (elLeft < containerLeft || elRight > containerLeft + containerWidth) {
+            scrollContainer.value.scrollTo({ left: Math.max(0, elLeft - 20), behavior: 'smooth' })
+          }
+        }
+        return
+      }
+    }
+  }
 })
 </script>

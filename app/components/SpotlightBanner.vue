@@ -22,7 +22,7 @@
         are added to curated playlists and each eligible artist receives $1000 USD when a track is selected.
       </p>
       <NuxtLink
-        to="/song"
+        to="/song/reckless-love"
         class="btn-primary"
         style="background-color: white; color: black; border-radius: 30px; padding: 12px 28px; text-decoration: none"
       >

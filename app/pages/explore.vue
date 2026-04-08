@@ -12,7 +12,7 @@
           <NuxtLink
             v-for="album in topAlbums"
             :key="album.title"
-            to="/song"
+            to="/song/reckless-love"
             class="top-album-card"
           >
             <div class="top-album-img-wrapper">

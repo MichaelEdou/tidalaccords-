@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="track in trendingTracks" :key="track.number" style="cursor: pointer" @click="$router.push('/song')">
+        <tr v-for="track in trendingTracks" :key="track.number" style="cursor: pointer" @click="$router.push('/song/reckless-love')">
           <td style="color: var(--muted-foreground)">{{ track.number }}</td>
           <td>
             <div class="track-title-cell">
